@@ -21,6 +21,7 @@
 	// for the first line of the commit message)
 	float characterWidth = [@" " sizeWithAttributes:[self typingAttributes]].width;
 	float lineWidth = characterWidth * [PBGitDefaults commitMessageViewVerticalLineLength];
+	float secondaryLineWidth = characterWidth * [PBGitDefaults commitMessageViewSecondaryVerticalLineLength];
 
     [[NSColor lightGrayColor] set];
 	// This depends upon the fact that NSTextView always redraws complete lines.
@@ -31,6 +32,14 @@
 	line.size.width = 1;
 	line.size.height = aRect.size.height;
 	NSRectFill(line);
+
+  [[NSColor colorWithDeviceRed:0.95 green:0.75 blue:0.75 alpha:1] set];
+  NSRect line2;
+	line2.origin.x = padding + aRect.origin.x + secondaryLineWidth;
+  line2.origin.y = aRect.origin.y;
+	line2.size.width = 500000;
+	line2.size.height = aRect.size.height;
+	NSRectFill(line2);
 
 	[self setBackgroundColor:nil];
 	[super drawRect:aRect];

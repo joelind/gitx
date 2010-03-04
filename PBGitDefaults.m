@@ -9,7 +9,9 @@
 #import "PBGitDefaults.h"
 
 #define kDefaultVerticalLineLength 50
+#define kDefaultSecondaryVerticalLineLength 72
 #define kCommitMessageViewVerticalLineLength @"PBCommitMessageViewVerticalLineLength"
+#define kCommitMessageViewSecondaryVerticalLineLength @"PBCommitMessageViewSecondaryVerticalLineLength"
 #define kEnableGist @"PBEnableGist"
 #define kEnableGravatar @"PBEnableGravatar"
 #define kConfirmPublicGists @"PBConfirmPublicGists"
@@ -25,6 +27,8 @@
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 	[defaultValues setObject:[NSNumber numberWithInt:kDefaultVerticalLineLength]
                       forKey:kCommitMessageViewVerticalLineLength];
+  [defaultValues setObject:[NSNumber numberWithInt:kDefaultSecondaryVerticalLineLength]
+                    forKey:kCommitMessageViewSecondaryVerticalLineLength];
 	[defaultValues setObject:[NSNumber numberWithBool:YES]
 			  forKey:kEnableGist];
 	[defaultValues setObject:[NSNumber numberWithBool:YES]
@@ -45,6 +49,11 @@
 + (int) commitMessageViewVerticalLineLength
 {
 	return [[NSUserDefaults standardUserDefaults] integerForKey:kCommitMessageViewVerticalLineLength];
+}
+
++ (int) commitMessageViewSecondaryVerticalLineLength
+{
+	return [[NSUserDefaults standardUserDefaults] integerForKey:kCommitMessageViewSecondaryVerticalLineLength];
 }
 
 + (BOOL) isGistEnabled
